@@ -12,7 +12,7 @@ This script uses the AutoGen library to generate a concise and engaging blog pos
 
 ## Usage
 
-1. Install the required libraries: `pip install autogen`
+1. Install the required libraries: `pip install -r requirements.txt`
 2. Run the script: `python main.py # here you will provide arguments bydefault it uses ollama, with llama3`
 
 ## Command Line Arguments
