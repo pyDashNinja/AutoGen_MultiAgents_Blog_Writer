@@ -34,6 +34,3 @@ This script uses the AutoGen library to generate a concise and engaging blog pos
 
 The script generates a concise and engaging blog post about Artificial Intelligence.
 
-## License
-
-This script is licensed under the MIT License.
