@@ -6,7 +6,7 @@ import argparse
 argparser = argparse.ArgumentParser()
 argparser.add_argument("--model", type=str, default="llama3")
 argparser.add_argument("--api_key", type=str, default="ollama")
-argparser.add_argument("--base_url", type=str, default=None)
+argparser.add_argument("--base_url", type=str, default="http://localhost:11434/v1")
 
 args = argparser.parse_args()
 
