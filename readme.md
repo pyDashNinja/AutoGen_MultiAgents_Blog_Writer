@@ -1,35 +1,39 @@
-# AutoGen multi AI agent blog post writing using reflection
+# AutoGen AI Blog Post Writer
 
-AutoGen is a Microsoft open-source library for enabling Large Language Model (LLM) applications with multi-agent collaborations, teach ability and personalisation. With the AutoGen framework, users can build LLM workflows.
+## Overview
 
-This example writes a blog post with a maximum length of 3 paragraphs. The subject is "Artificial Intelligence".
+This script uses the AutoGen library to generate a concise and engaging blog post about Artificial Intelligence. It utilizes multiple AI agents to write, review, and refine the content.
 
-It uses OpenAI's ChatGPT 4 model.
+## Requirements
 
-This example uses a total of 6 agents using reflection. Reflection is a general prompting strategy which involves having LLMs analyse their own outputs, behaviours, knowledge, or reasoning processes.
+* AutoGen library
+* Python 3.x
+* OpenAI API key (optional)
 
-The Critic agent coordinates the work and uses the Writer agent to write a blog post.
+## Usage
 
-A set of 4 reviewer agents are nested within the Critic agent as the "inner monologue" of the Critic agent to reflect on the blog post written by the Writer agent. These 4 nested reviewer agents are:
+1. Install the required libraries: `pip install autogen`
+2. Run the script: `python main.py # here you will provide arguments bydefault it uses ollama, with llama3`
 
-1. A "Search Engine Optimisation (SEO) Reviewer" that optimises the content for search engines
-2. A "Legal Reviewer" that checks for legal compliance
-3. A "Ethical Reviewer" that checks that there are no ethical issues
-4. A "Meta Reviewer" that aggregates and reviews the work of the previous 3 reviewers and generates final suggestions about the content. Note that the first 3 reviewer agents have their answers summarised and JSON formatted by an LLM before their answers are passed on to the ""Meta Reviewer", so that the "Meta Reviewer" can better processes these answers.
+## Command Line Arguments
 
-This example uses a maximum of 2 turns, which means that the initial answer from the Writer agent gets reviewed and then the review suggestions get forwarded by the Critic agent to the Writer agent again. The Writer agent then generates the final answer that incorporates the feedback from the reviewers.
+* `--model`: Specify the AI model to use (default: `llama3`)
+* `--api_key`: Specify the OpenAI API key (default: `ollama`)
+* `--base_url`: Specify the base URL for the AI model (default: `http://localhost:11434/v1`)
 
-You need an OpenAI API key for this example. [Get your OpenAI API key here](https://platform.openai.com/login). You can insert your OpenAI API key in the `main.py` script, or you can supply your OpenAI API key either via the `.env` file, or through an environment variable called `OPENAI_API_KEY`. If you don't want to use an OpenAI model, then you can also use other models, including local models.
+## How it Works
 
-| >>>>> The final answer will look similar to this example: <<<<< |
-| --------------------------------------------------------------- |
+1. The script defines a task to write a blog post about Artificial Intelligence.
+2. The `Writer` agent generates an initial draft of the blog post.
+3. The `Critic` agent reviews the draft and provides feedback.
+4. Four nested agents (`SEO Reviewer`, `Legal Reviewer`, `Ethics Reviewer`, and `Meta Reviewer`) review the draft and provide suggestions.
+5. The `Critic` agent aggregates the feedback and refines the blog post.
+6. The final blog post is printed to the console.
 
-### How AI is Revolutionizing Industries: Embracing the Future
+## Output
 
-```
-Artificial Intelligence (AI) is rapidly transforming industries across the board, from enhancing efficiencies in the healthcare sector to raising significant ethical and privacy concerns. Modern AI applications, like predictive healthcare analytics, are not just innovative; they're proving essential in managing unprecedented volumes of data and improving patient outcomes. Moreover, AI's integration into everyday technologies — from smartphones to autonomous vehicles — illustrates its widespread impact and potential to further shape our digital future.
+The script generates a concise and engaging blog post about Artificial Intelligence.
 
-Despite its benefits, AI introduces complex challenges, particularly concerning job displacement and privacy. As AI automates tasks, sectors such as manufacturing and administrative services face the highest risk of job loss, urging a societal shift towards reskilling and adapting workforce capabilities. Privacy issues are equally pressing; AI's ability to process vast amounts of personal data raises significant concerns about individual rights and freedoms, necessitating strict compliance with evolving privacy laws and regulations.
+## License
 
-Navigating the future with AI demands a balanced approach, embracing its transformative possibilities while vigilantly addressing ethical and legal implications. It's essential for stakeholders to engage in ongoing dialogues about fair AI practices, promote transparency, and ensure an equitable distribution of AI advances. By responsibly leveraging AI, industries can achieve unprecedented growth and innovation, ultimately enhancing global welfare and leading us towards a more efficient, sustainable, and equitable future.
-```
+This script is licensed under the MIT License.
